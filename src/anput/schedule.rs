@@ -48,7 +48,7 @@ pub struct Benchmark<const LOCKING: bool>(Universe, Jobs);
 
 impl<const LOCKING: bool> Benchmark<LOCKING> {
     pub fn new() -> Self {
-        let universe = Universe::default().with_plugin(
+        let mut universe = Universe::default().with_plugin(
             GraphSchedulerPlugin::<LOCKING>::default()
                 .plugin_setup(|plugin| {
                     plugin
@@ -63,6 +63,25 @@ impl<const LOCKING: bool> Benchmark<LOCKING> {
                     system.local(SystemParallelize::AnyWorker)
                 }),
         );
+
+        for _ in 0..10 {
+            universe.simulation.spawn((A(0.0), B(0.0))).unwrap();
+        }
+        for _ in 0..10 {
+            universe.simulation.spawn((A(0.0), B(0.0), C(0.0))).unwrap();
+        }
+        for _ in 0..10 {
+            universe
+                .simulation
+                .spawn((A(0.0), B(0.0), C(0.0), D(0.0)))
+                .unwrap();
+        }
+        for _ in 0..10 {
+            universe
+                .simulation
+                .spawn((A(0.0), B(0.0), C(0.0), E(0.0)))
+                .unwrap();
+        }
 
         Self(universe, Jobs::default())
     }

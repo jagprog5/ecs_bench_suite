@@ -1,0 +1,34 @@
+name: Run Benchmarks and Commit
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push new commits to the repository
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Install Rust nightly
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: nightly
+
+    - name: Run cargo bench and save results to file
+      run: cargo bench
+
+    - name: Commit benchmark results
+      uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "Automated benchmark results update"
+        commit_author: "GitHub Actions <actions@github.com>"
+        branch: master

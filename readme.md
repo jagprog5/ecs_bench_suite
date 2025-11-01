@@ -1,6 +1,10 @@
 # ECS Bench Suite
 
-Forked from [ecs_bench_suite](https://github.com/rust-gamedev/ecs_bench_suite), adding [ETS](https://github.com/jagprog5/ets).
+Forked from [ecs_bench_suite](https://github.com/rust-gamedev/ecs_bench_suite).
+Addidional crates:
+
+- [ETS](https://github.com/jagprog5/ets).
+- [Anput](https://github.com/PsichiX/anput/)
 
 ## The Benchmarks
 
@@ -10,7 +14,7 @@ This benchmark is designed to test the base cost of constructing entities and mo
 
 Inserts 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec3)` and `Velocity(vec3)`.
 
-![](./target/criterion/simple_insert/report/violin.svg)
+![Simple insert](./target/criterion/simple_insert/report/violin.svg)
 
 ### Simple Iter
 
@@ -20,7 +24,7 @@ Dataset: 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position
 
 Test: Iterate through all entities with `Position` and `Velocity`, and add velocity onto position.
 
-![](./target/criterion/simple_iter/report/violin.svg)
+![Simple iter](./target/criterion/simple_iter/report/violin.svg)
 
 ### Fragmented Iter
 
@@ -30,7 +34,7 @@ Dataset: 26 component types (`A(f32)` through `Z(f32)`), each with 20 entities p
 
 Test: Iterate through all entities with a `Data` component and double its value.
 
-![](./target/criterion/fragmented_iter/report/violin.svg)
+![Fragmented iter](./target/criterion/fragmented_iter/report/violin.svg)
 
 ### System Scheduling
 
@@ -38,20 +42,20 @@ This benchmark is designed to test how efficiently the ECS can schedule multiple
 
 Dataset:
 
-* 10,000 entities with `(A, B)` components.
-* 10,000 entities with `(A, B, C)` components.
-* 10,000 entities with `(A, B, C, D)` components.
-* 10,000 entities with `(A, B, C, E)` components.
+- 10,000 entities with `(A, B)` components.
+- 10,000 entities with `(A, B, C)` components.
+- 10,000 entities with `(A, B, C, D)` components.
+- 10,000 entities with `(A, B, C, E)` components.
 
 Test:
 
 Three systems accessing the following components mutably, where each system swaps the values stored in each component:
 
-* `(A, B)`
-* `(C, D)`
-* `(C, E)`
+- `(A, B)`
+- `(C, D)`
+- `(C, E)`
 
-![](./target/criterion/schedule/report/violin.svg)
+![Schedule](./target/criterion/schedule/report/violin.svg)
 
 ### Heavy Compute
 
@@ -61,7 +65,7 @@ Dataset: 1,000 entities with a `mat4x4` component.
 
 Test: Iterate through all `mat4x4` components, and invert the matrix 100 times.
 
-![](./target/criterion/heavy_compute/report/violin.svg)
+![Heavy compute](./target/criterion/heavy_compute/report/violin.svg)
 
 ### Add/Remove Component
 
@@ -71,7 +75,7 @@ Dataset: 10,000 entities with a single `A` component.
 
 Test: Iterate through all entities, adding a `B` component. Then iterate through all entities again, removing their `B` component.
 
-![](./target/criterion/add_remove_component/report/violin.svg)
+![Add + remove component](./target/criterion/add_remove_component/report/violin.svg)
 
 ### Serialize
 
@@ -81,5 +85,5 @@ Dataset: 1000 entities with `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec
 
 Test: Serialize all entities to RON and bincode formats in-memory. Then deserialize back into the ECS. The RON and bincode formats should be separate benchmark tests.
 
-![](./target/criterion/serialize_text/report/violin.svg)
-![](./target/criterion/serialize_binary/report/violin.svg)
+![Serialize text](./target/criterion/serialize_text/report/violin.svg)
+![Serialize bytes](./target/criterion/serialize_binary/report/violin.svg)

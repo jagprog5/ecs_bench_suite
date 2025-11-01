@@ -3,6 +3,10 @@ use ecs_bench_suite::*;
 
 fn bench_simple_insert(c: &mut Criterion) {
     let mut group = c.benchmark_group("simple_insert");
+    group.bench_function("anput", |b| {
+        let mut bench = anput::simple_insert::Benchmark::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("ets", |b| {
         let mut bench = ets::simple_insert::Benchmark::new();
         b.iter(move || bench.run());
@@ -35,6 +39,14 @@ fn bench_simple_insert(c: &mut Criterion) {
 
 fn bench_simple_iter(c: &mut Criterion) {
     let mut group = c.benchmark_group("simple_iter");
+    group.bench_function("anput-locking", |b| {
+        let mut bench = anput::simple_iter::Benchmark::<true>::new();
+        b.iter(move || bench.run());
+    });
+    group.bench_function("anput-lockfree", |b| {
+        let mut bench = anput::simple_iter::Benchmark::<false>::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("ets", |b| {
         let mut bench = ets::simple_iter::Benchmark::new();
         b.iter(move || bench.run());
@@ -71,6 +83,14 @@ fn bench_simple_iter(c: &mut Criterion) {
 
 fn bench_frag_iter_bc(c: &mut Criterion) {
     let mut group = c.benchmark_group("fragmented_iter");
+    group.bench_function("anput-locking", |b| {
+        let mut bench = anput::frag_iter::Benchmark::<true>::new();
+        b.iter(move || bench.run());
+    });
+    group.bench_function("anput-lockfree", |b| {
+        let mut bench = anput::frag_iter::Benchmark::<false>::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("ets", |b| {
         let mut bench = ets::frag_iter::Benchmark::new();
         b.iter(move || bench.run());
@@ -103,6 +123,14 @@ fn bench_frag_iter_bc(c: &mut Criterion) {
 
 fn bench_schedule(c: &mut Criterion) {
     let mut group = c.benchmark_group("schedule");
+    group.bench_function("anput-locking", |b| {
+        let mut bench = anput::schedule::Benchmark::<true>::new();
+        b.iter(move || bench.run());
+    });
+    group.bench_function("anput-lockfree", |b| {
+        let mut bench = anput::schedule::Benchmark::<false>::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("ets", |b| {
         let mut bench = ets::schedule::Benchmark::new();
         b.iter(move || bench.run());
@@ -135,6 +163,14 @@ fn bench_schedule(c: &mut Criterion) {
 
 fn bench_heavy_compute(c: &mut Criterion) {
     let mut group = c.benchmark_group("heavy_compute");
+    group.bench_function("anput-locking", |b| {
+        let mut bench = anput::heavy_compute::Benchmark::<true>::new();
+        b.iter(move || bench.run());
+    });
+    group.bench_function("anput-lockfree", |b| {
+        let mut bench = anput::heavy_compute::Benchmark::<false>::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("ets", |b| {
         let mut bench = ets::heavy_compute::Benchmark::new();
         b.iter(move || bench.run());
@@ -167,6 +203,10 @@ fn bench_heavy_compute(c: &mut Criterion) {
 
 fn bench_add_remove(c: &mut Criterion) {
     let mut group = c.benchmark_group("add_remove_component");
+    group.bench_function("anput", |b| {
+        let mut bench = anput::add_remove::Benchmark::new();
+        b.iter(move || bench.run());
+    });
     group.bench_function("legion", |b| {
         let mut bench = legion::add_remove::Benchmark::new();
         b.iter(move || bench.run());

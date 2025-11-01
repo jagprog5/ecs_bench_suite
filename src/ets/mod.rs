@@ -1,3 +1,5 @@
+#![allow(clippy::len_without_is_empty)]
+
 pub mod simple_insert;
 pub mod simple_iter;
 pub mod frag_iter;

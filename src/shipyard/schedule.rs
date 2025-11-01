@@ -80,9 +80,9 @@ impl Benchmark {
         ).unwrap();
 
         Workload::builder("run")
-            .with_system(&ab)
-            .with_system(&cd)
-            .with_system(&ce)
+            .with_system(ab)
+            .with_system(cd)
+            .with_system(ce)
             .add_to_world(&world)
             .unwrap();
 

@@ -2,7 +2,7 @@
 name = "ecs_bench_suite"
 version = "0.1.0"
 authors = ["Thomas Gillen <thomas.gillen@googlemail.com>"]
-edition = "2018"
+edition = "2024"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -21,6 +21,7 @@ serde = { version = "1.0", features = ["derive"] }
 shipyard = "0.5.0"
 specs = {version = "0.16.1", features = ["serde"] }
 specs-derive = "0.4.1"
+anput = "0.21.1"
 
 [dev-dependencies]
 criterion = "0.3"

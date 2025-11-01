@@ -38,3 +38,8 @@ impl Benchmark {
         let _deserialized: MyWorld = bincode::deserialize(&serialized).unwrap();
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

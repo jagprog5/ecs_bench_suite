@@ -1,5 +1,5 @@
 use hecs::{serialize::column::*, *};
-use serde::{de::SeqAccess, ser::SerializeTuple, Deserialize, Serialize};
+use serde::{Deserialize, Serialize, de::SeqAccess, ser::SerializeTuple};
 
 #[derive(Default, Copy, Clone, Serialize, Deserialize)]
 struct Transform([f32; 16]);
@@ -177,4 +177,9 @@ impl Benchmark {
         )
         .unwrap();
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

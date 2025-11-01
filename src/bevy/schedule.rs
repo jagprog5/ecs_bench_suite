@@ -51,3 +51,8 @@ impl Benchmark {
         self.1.run(&mut self.0);
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

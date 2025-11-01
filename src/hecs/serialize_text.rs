@@ -1,5 +1,5 @@
 use hecs::{serialize::row::*, *};
-use serde::{de::MapAccess, ser::SerializeMap, Deserialize, Serialize};
+use serde::{Deserialize, Serialize, de::MapAccess, ser::SerializeMap};
 
 #[derive(Default, Copy, Clone, Serialize, Deserialize)]
 struct Transform([f32; 16]);
@@ -113,4 +113,9 @@ impl Benchmark {
         )
         .unwrap();
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

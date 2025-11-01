@@ -45,3 +45,8 @@ impl Benchmark {
         self.0.par_visit_mut_do_compute(|e| e.compute());
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

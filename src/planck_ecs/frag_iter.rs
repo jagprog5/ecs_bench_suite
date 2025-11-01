@@ -39,3 +39,8 @@ impl Benchmark {
         self.1.run(&self.0).unwrap();
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

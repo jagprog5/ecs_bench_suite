@@ -10,7 +10,6 @@ struct MyData {
 
 entity_trait_system::world!(MyWorld, MyData;);
 
-
 pub struct Benchmark;
 
 impl Benchmark {
@@ -29,4 +28,9 @@ impl Benchmark {
             });
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

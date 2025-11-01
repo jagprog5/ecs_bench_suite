@@ -49,14 +49,20 @@ impl Benchmark {
         }
 
         populate!(
-            A, B, C, DD, E, FF, G, H, I, J, K, L, M,
-            N, O, P, Q, R, S, TT, U, VV, W, X, Y, Z
+            A, B, C, DD, E, FF, G, H, I, J, K, L, M, N, O, P, Q, R, S, TT, U, VV, W, X, Y, Z
         );
 
         Self { world }
     }
 
     pub fn run(&mut self) {
-        self.world.visit_mut_checker(|e| { *e.the_value() *= 2.0; });
+        self.world.visit_mut_checker(|e| {
+            *e.the_value() *= 2.0;
+        });
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

@@ -71,3 +71,13 @@ impl<const LOCKING: bool> Benchmark<LOCKING> {
         let _ = GraphScheduler::<LOCKING>.run(&self.1, &mut self.0);
     }
 }
+
+#[test]
+fn test_locking() {
+    Benchmark::<true>::new().run();
+}
+
+#[test]
+fn test_lockfree() {
+    Benchmark::<false>::new().run();
+}

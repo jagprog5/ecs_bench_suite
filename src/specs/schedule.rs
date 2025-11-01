@@ -107,3 +107,8 @@ impl Benchmark<'_> {
         self.1.dispatch_par(&self.0)
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

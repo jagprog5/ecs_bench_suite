@@ -99,7 +99,11 @@ impl Benchmark {
             world.a_b.insert(AB { a: 0.0, b: 0.0 });
         });
         (0..10000).for_each(|_| {
-            world.a_b_c.insert(ABC { a: 0.0, b: 0.0, c: 0.0 });
+            world.a_b_c.insert(ABC {
+                a: 0.0,
+                b: 0.0,
+                c: 0.0,
+            });
         });
         (0..10000).for_each(|_| {
             world.a_b_c_d.insert(ABCD {
@@ -124,4 +128,9 @@ impl Benchmark {
         self.0.par_visit_mut_has_a_b_and_c_d(|e| e.swap_ab_and_cd());
         self.0.par_visit_mut_has_c_e(|e| e.swap_ce());
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

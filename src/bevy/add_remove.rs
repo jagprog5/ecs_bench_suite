@@ -26,3 +26,8 @@ impl Benchmark {
         }
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

@@ -8,13 +8,18 @@ Addidional crates:
 
 ## The Benchmarks
 
+Benchmark reports aren't kept on repository to not pollute diffs for every update.
+If you want to see detailed reports, ensure you've installed `just` binary and run
+`just bench` command to build them locally. Results are stored in `target/criterion`.
+You also need `resvg` binary installed to produce PNG plots for rendering in readme.
+
 ### Simple Insert
 
 This benchmark is designed to test the base cost of constructing entities and moving components into the ECS.
 
 Inserts 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec3)` and `Velocity(vec3)`.
 
-![Simple insert](./target/criterion/simple_insert/report/violin.svg)
+![Simple insert](./report/simple_insert.png)
 
 ### Simple Iter
 
@@ -24,7 +29,7 @@ Dataset: 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position
 
 Test: Iterate through all entities with `Position` and `Velocity`, and add velocity onto position.
 
-![Simple iter](./target/criterion/simple_iter/report/violin.svg)
+![Simple iter](./report/simple_iter.png)
 
 ### Fragmented Iter
 
@@ -34,7 +39,7 @@ Dataset: 26 component types (`A(f32)` through `Z(f32)`), each with 20 entities p
 
 Test: Iterate through all entities with a `Data` component and double its value.
 
-![Fragmented iter](./target/criterion/fragmented_iter/report/violin.svg)
+![Fragmented iter](./report/fragmented_iter.png)
 
 ### System Scheduling
 
@@ -55,7 +60,7 @@ Three systems accessing the following components mutably, where each system swap
 - `(C, D)`
 - `(C, E)`
 
-![Schedule](./target/criterion/schedule/report/violin.svg)
+![Schedule](./report/schedule.png)
 
 ### Heavy Compute
 
@@ -65,7 +70,7 @@ Dataset: 1,000 entities with a `mat4x4` component.
 
 Test: Iterate through all `mat4x4` components, and invert the matrix 100 times.
 
-![Heavy compute](./target/criterion/heavy_compute/report/violin.svg)
+![Heavy compute](./report/heavy_compute.png)
 
 ### Add/Remove Component
 
@@ -75,7 +80,7 @@ Dataset: 10,000 entities with a single `A` component.
 
 Test: Iterate through all entities, adding a `B` component. Then iterate through all entities again, removing their `B` component.
 
-![Add + remove component](./target/criterion/add_remove_component/report/violin.svg)
+![Add + remove component](./report/add_remove_component.png)
 
 ### Serialize
 
@@ -85,5 +90,5 @@ Dataset: 1000 entities with `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec
 
 Test: Serialize all entities to RON and bincode formats in-memory. Then deserialize back into the ECS. The RON and bincode formats should be separate benchmark tests.
 
-![Serialize text](./target/criterion/serialize_text/report/violin.svg)
-![Serialize bytes](./target/criterion/serialize_binary/report/violin.svg)
+![Serialize text](./report/serialize_text.png)
+![Serialize bytes](./report/serialize_binary.png)

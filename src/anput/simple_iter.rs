@@ -37,3 +37,13 @@ impl<const LOCKING: bool> Benchmark<LOCKING> {
         }
     }
 }
+
+#[test]
+fn test_locking() {
+    Benchmark::<true>::new().run();
+}
+
+#[test]
+fn test_lockfree() {
+    Benchmark::<false>::new().run();
+}

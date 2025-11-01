@@ -43,3 +43,8 @@ impl Benchmark {
         self.1.run_now(&self.0)
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

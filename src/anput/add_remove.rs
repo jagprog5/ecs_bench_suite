@@ -12,7 +12,7 @@ impl Benchmark {
         let entities = (0..10000)
             .map(|_| world.spawn((A(0.0),)).unwrap())
             .collect::<Vec<_>>();
-
+        
         Self(world, entities)
     }
 
@@ -20,9 +20,14 @@ impl Benchmark {
         for entity in &self.1 {
             self.0.insert(*entity, (B(0.0),)).unwrap();
         }
-
+        
         for entity in &self.1 {
             self.0.remove::<(B,)>(*entity).unwrap();
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

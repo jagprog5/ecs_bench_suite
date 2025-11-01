@@ -36,3 +36,8 @@ impl Benchmark {
         // let _deserialized: MyWorld = serde::Deserialize::deserialize(&mut deserializer).unwrap();
     }
 }
+
+#[test]
+fn test() {
+    Benchmark::new().run();
+}

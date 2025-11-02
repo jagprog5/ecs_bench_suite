@@ -13,7 +13,7 @@ bevy_ecs = "0.17"
 entity-trait-system = { version = "1.1", features = ["rayon", "serde"] }
 hecs = { version = "0.10", features = ["column-serialize", "row-serialize"] }
 legion = "0.4"
-planck_ecs = { version = "1.1", features = ["parallel"] }
+planck_ecs = { version = "1.2", features = ["parallel"] }
 shipyard = "0.5"
 specs = { version = "0.16", features = ["serde"] }
 specs-derive = "0.4"

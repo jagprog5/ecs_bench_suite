@@ -23,7 +23,7 @@ impl Benchmark {
     pub fn run(&mut self) {
         let mut world = World::default();
 
-        for _ in 0..10000 {
+        for _ in 0..crate::INSTANCES_COUNT {
             let _ = world.spawn((
                 Transform(Matrix4::from_scale(1.0)),
                 Position(Vector3::unit_x()),

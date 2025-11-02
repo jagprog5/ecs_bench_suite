@@ -38,13 +38,13 @@ impl Benchmark {
     pub fn new() -> Self {
         let mut world = World::default();
 
-        world.spawn_batch((0..10000).map(|_| (A(0.0), B(0.0))));
+        world.spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0), B(0.0))));
 
-        world.spawn_batch((0..10000).map(|_| (A(0.0), B(0.0), C(0.0))));
+        world.spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0), B(0.0), C(0.0))));
 
-        world.spawn_batch((0..10000).map(|_| (A(0.0), B(0.0), C(0.0), D(0.0))));
+        world.spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0), B(0.0), C(0.0), D(0.0))));
 
-        world.spawn_batch((0..10000).map(|_| (A(0.0), B(0.0), C(0.0), E(0.0))));
+        world.spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0), B(0.0), C(0.0), E(0.0))));
 
         let mut schedule = Schedule::default();
         schedule.set_executor_kind(ExecutorKind::MultiThreaded);

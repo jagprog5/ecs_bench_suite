@@ -9,7 +9,7 @@ impl Benchmark {
     pub fn new() -> Self {
         let mut world = World::default();
 
-        let entities = (0..10000)
+        let entities = (0..crate::INSTANCES_COUNT)
             .map(|_| world.spawn((A(0.0),)).unwrap())
             .collect::<Vec<_>>();
 

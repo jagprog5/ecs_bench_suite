@@ -29,7 +29,7 @@ impl Benchmark {
              mut positions: ViewMut<Position>,
              mut rotations: ViewMut<Rotation>,
              mut velocities: ViewMut<Velocity>| {
-                for _ in 0..10_000 {
+                for _ in 0..crate::INSTANCES_COUNT {
                     entities.add_entity(
                         (
                             &mut transforms,

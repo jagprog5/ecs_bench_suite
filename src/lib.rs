@@ -13,3 +13,5 @@ pub mod legion_packed;
 pub mod planck_ecs;
 pub mod shipyard;
 pub mod specs;
+
+pub const INSTANCES_COUNT: usize = 10000;

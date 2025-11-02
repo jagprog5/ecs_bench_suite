@@ -30,8 +30,8 @@ pub struct Benchmark(MyWorld);
 impl Benchmark {
     pub fn new() -> Self {
         let mut world = MyWorld::default();
-        world.arena_mut::<MyData>().reserve(10000);
-        for _ in 0..10_000 {
+        world.arena_mut::<MyData>().reserve(crate::INSTANCES_COUNT);
+        for _ in 0..crate::INSTANCES_COUNT {
             world.my_data.insert(MyData {
                 transform: Matrix4::from_scale(1.0),
                 position: Vector3::unit_x(),

@@ -64,13 +64,13 @@ impl<const LOCKING: bool> Benchmark<LOCKING> {
                 }),
         );
 
-        for _ in 0..10 {
+        for _ in 0..crate::INSTANCES_COUNT {
             universe.simulation.spawn((A(0.0), B(0.0))).unwrap();
         }
-        for _ in 0..10 {
+        for _ in 0..crate::INSTANCES_COUNT {
             universe.simulation.spawn((A(0.0), B(0.0), C(0.0))).unwrap();
         }
-        for _ in 0..10 {
+        for _ in 0..crate::INSTANCES_COUNT {
             universe
                 .simulation
                 .spawn((A(0.0), B(0.0), C(0.0), D(0.0)))

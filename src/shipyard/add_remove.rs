@@ -13,7 +13,7 @@ impl Benchmark {
 
         let entities = world.run(|mut entities: EntitiesViewMut, mut a: ViewMut<A>| {
             let mut entity_ids = Vec::new();
-            for _ in 0..10_000 {
+            for _ in 0..crate::INSTANCES_COUNT {
                 let entity = entities.add_entity(&mut a, A(0.0));
                 entity_ids.push(entity);
             }

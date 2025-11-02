@@ -15,7 +15,7 @@ hecs = { version = "0.10", features = ["column-serialize", "row-serialize"] }
 legion = "0.4"
 planck_ecs = { version = "1.2", features = ["parallel"] }
 shipyard = "0.9"
-specs = { version = "0.16", features = ["serde"] }
+specs = { version = "0.20", features = ["serde"] }
 specs-derive = "0.4"
 # misc
 bincode = "1.3"

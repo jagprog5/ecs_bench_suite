@@ -10,7 +10,6 @@ struct MyData {
 
 entity_trait_system::world!(MyWorld, MyData;);
 
-
 pub struct Benchmark;
 
 impl Benchmark {
@@ -20,7 +19,8 @@ impl Benchmark {
 
     pub fn run(&mut self) {
         let mut world = MyWorld::default();
-        for _ in 0..10_000 {
+        world.arena_mut::<MyData>().reserve(crate::INSTANCES_COUNT);
+        for _ in 0..crate::INSTANCES_COUNT {
             world.my_data.insert(MyData {
                 transform: Matrix4::from_scale(1.0),
                 position: Vector3::unit_x(),
@@ -29,4 +29,9 @@ impl Benchmark {
             });
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

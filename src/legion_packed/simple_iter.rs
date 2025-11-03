@@ -27,10 +27,10 @@ impl Benchmark {
 
         world.extend(
             (
-                vec![Transform(Matrix4::from_scale(1.0)); 10000],
-                vec![Position(Vector3::unit_x()); 10000],
-                vec![Rotation(Vector3::unit_x()); 10000],
-                vec![Velocity(Vector3::unit_x()); 10000],
+                vec![Transform(Matrix4::from_scale(1.0)); crate::INSTANCES_COUNT],
+                vec![Position(Vector3::unit_x()); crate::INSTANCES_COUNT],
+                vec![Rotation(Vector3::unit_x()); crate::INSTANCES_COUNT],
+                vec![Velocity(Vector3::unit_x()); crate::INSTANCES_COUNT],
             )
                 .into_soa(),
         );
@@ -46,4 +46,9 @@ impl Benchmark {
             position.0 += velocity.0;
         });
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

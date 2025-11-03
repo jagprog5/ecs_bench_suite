@@ -9,7 +9,9 @@ impl Benchmark {
     pub fn new() -> Self {
         let mut world = World::default();
 
-        let entities = world.extend((0..10000).map(|_| (A(0.0),))).to_vec();
+        let entities = world
+            .extend((0..crate::INSTANCES_COUNT).map(|_| (A(0.0),)))
+            .to_vec();
 
         Self(world, entities)
     }
@@ -23,4 +25,9 @@ impl Benchmark {
             self.0.entry(*entity).unwrap().remove_component::<B>();
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

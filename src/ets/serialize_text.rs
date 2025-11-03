@@ -30,9 +30,14 @@ impl Benchmark {
 
     pub fn run(&mut self) {
         let serialized = ron::to_string(&self.0).unwrap();
-        let de_json: MyWorld = ron::from_str(&serialized).unwrap();
+        let _de_json: MyWorld = ron::from_str(&serialized).unwrap();
         // let serialized = ron::ser::to_string(&self.0).unwrap();
         // let mut deserializer = ron::de::Deserializer::from_str(&serialized).unwrap();
         // let _deserialized: MyWorld = serde::Deserialize::deserialize(&mut deserializer).unwrap();
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

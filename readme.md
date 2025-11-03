@@ -1,8 +1,17 @@
 # ECS Bench Suite
 
-Forked from [ecs_bench_suite](https://github.com/rust-gamedev/ecs_bench_suite), adding [ETS](https://github.com/jagprog5/ets).
+Forked from [ecs_bench_suite](https://github.com/rust-gamedev/ecs_bench_suite).
+Addidional crates:
+
+- [ETS](https://github.com/jagprog5/ets).
+- [Anput](https://github.com/PsichiX/anput/)
 
 ## The Benchmarks
+
+Benchmark reports aren't kept on repository to not pollute diffs for every update.
+If you want to see detailed reports, ensure you've installed `just` binary and run
+`just bench` command to build them locally. Results are stored in `target/criterion`.
+You also need `resvg` binary installed to produce PNG plots for rendering in readme.
 
 ### Simple Insert
 
@@ -10,7 +19,7 @@ This benchmark is designed to test the base cost of constructing entities and mo
 
 Inserts 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec3)` and `Velocity(vec3)`.
 
-![](./imgs/simple_insert.jpg)
+![Simple insert](./report/simple_insert.png)
 
 ### Simple Iter
 
@@ -20,7 +29,7 @@ Dataset: 10,000 entities, each with 4 components: `Transform(mat4x4)`, `Position
 
 Test: Iterate through all entities with `Position` and `Velocity`, and add velocity onto position.
 
-![](./imgs/simple_iter.jpg)
+![Simple iter](./report/simple_iter.png)
 
 ### Fragmented Iter
 
@@ -30,7 +39,7 @@ Dataset: 26 component types (`A(f32)` through `Z(f32)`), each with 20 entities p
 
 Test: Iterate through all entities with a `Data` component and double its value.
 
-![](./imgs/fragmented_iter.jpg)
+![Fragmented iter](./report/fragmented_iter.png)
 
 ### System Scheduling
 
@@ -38,20 +47,20 @@ This benchmark is designed to test how efficiently the ECS can schedule multiple
 
 Dataset:
 
-* 10,000 entities with `(A, B)` components.
-* 10,000 entities with `(A, B, C)` components.
-* 10,000 entities with `(A, B, C, D)` components.
-* 10,000 entities with `(A, B, C, E)` components.
+- 10,000 entities with `(A, B)` components.
+- 10,000 entities with `(A, B, C)` components.
+- 10,000 entities with `(A, B, C, D)` components.
+- 10,000 entities with `(A, B, C, E)` components.
 
 Test:
 
 Three systems accessing the following components mutably, where each system swaps the values stored in each component:
 
-* `(A, B)`
-* `(C, D)`
-* `(C, E)`
+- `(A, B)`
+- `(C, D)`
+- `(C, E)`
 
-![](./imgs/schedule.jpg)
+![Schedule](./report/schedule.png)
 
 ### Heavy Compute
 
@@ -61,7 +70,7 @@ Dataset: 1,000 entities with a `mat4x4` component.
 
 Test: Iterate through all `mat4x4` components, and invert the matrix 100 times.
 
-![](./imgs/heavy_compute.jpg)
+![Heavy compute](./report/heavy_compute.png)
 
 ### Add/Remove Component
 
@@ -71,9 +80,9 @@ Dataset: 10,000 entities with a single `A` component.
 
 Test: Iterate through all entities, adding a `B` component. Then iterate through all entities again, removing their `B` component.
 
-![](./imgs/add_remove_component.jpg)
+![Add + remove component](./report/add_remove_component.png)
 
-### Serialize
+<!-- ### Serialize
 
 This benchmark is designed to test how quickly the ECS and serialize and deserialize its entities in both text (RON) and binary (bincode) formats.
 
@@ -81,5 +90,5 @@ Dataset: 1000 entities with `Transform(mat4x4)`, `Position(vec3)`, `Rotation(vec
 
 Test: Serialize all entities to RON and bincode formats in-memory. Then deserialize back into the ECS. The RON and bincode formats should be separate benchmark tests.
 
-![](./imgs/serialize_text.jpg)
-![](./imgs/serialize_binary.jpg)
+![Serialize text](./report/serialize_text.png)
+![Serialize bytes](./report/serialize_binary.png) -->

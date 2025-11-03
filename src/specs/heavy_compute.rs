@@ -1,6 +1,6 @@
 use cgmath::*;
 use rayon::prelude::*;
-use specs::{prelude::*, ParJoin};
+use specs::{ParJoin, prelude::*};
 use specs_derive::*;
 
 #[derive(Copy, Clone, Component)]
@@ -61,4 +61,9 @@ impl Benchmark {
     pub fn run(&mut self) {
         self.1.run_now(&self.0);
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

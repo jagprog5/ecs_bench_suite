@@ -1,16 +1,16 @@
 use cgmath::*;
 use shipyard::*;
 
-#[derive(Copy, Clone)]
+#[derive(Component, Copy, Clone)]
 struct Transform(Matrix4<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Component, Copy, Clone)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Component, Copy, Clone)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Component, Copy, Clone)]
 struct Velocity(Vector3<f32>);
 
 pub struct Benchmark;
@@ -29,7 +29,7 @@ impl Benchmark {
              mut positions: ViewMut<Position>,
              mut rotations: ViewMut<Rotation>,
              mut velocities: ViewMut<Velocity>| {
-                for _ in 0..10_000 {
+                for _ in 0..crate::INSTANCES_COUNT {
                     entities.add_entity(
                         (
                             &mut transforms,
@@ -46,6 +46,11 @@ impl Benchmark {
                     );
                 }
             },
-        ).unwrap();
+        );
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

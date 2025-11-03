@@ -30,7 +30,7 @@ impl Benchmark {
         world.register::<Position>();
         world.register::<Rotation>();
         world.register::<Velocity>();
-        (0..10000).for_each(|_| {
+        (0..crate::INSTANCES_COUNT).for_each(|_| {
             world
                 .create_entity()
                 .with(Transform(Matrix4::<f32>::from_scale(1.0)))
@@ -40,4 +40,9 @@ impl Benchmark {
                 .build();
         });
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

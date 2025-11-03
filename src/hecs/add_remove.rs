@@ -10,7 +10,7 @@ impl Benchmark {
         let mut world = World::default();
 
         let entities = world
-            .spawn_batch((0..10000).map(|_| (A(0.0),)))
+            .spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0),)))
             .collect::<Vec<_>>();
 
         Self(world, entities)
@@ -25,4 +25,9 @@ impl Benchmark {
             self.0.remove_one::<B>(*entity).unwrap();
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

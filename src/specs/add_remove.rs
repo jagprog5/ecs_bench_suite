@@ -14,7 +14,7 @@ impl Benchmark {
         let mut world = World::new();
         world.register::<A>();
         world.register::<B>();
-        let entities = (0..10000)
+        let entities = (0..crate::INSTANCES_COUNT)
             .map(|_| world.create_entity().with(A(0.0)).build())
             .collect();
         Self(world, entities)
@@ -30,4 +30,9 @@ impl Benchmark {
             b_storage.remove(*entity);
         }
     }
+}
+
+#[test]
+fn test() {
+    Benchmark::new().run();
 }

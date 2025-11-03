@@ -1,5 +1,5 @@
+use anput::world::World;
 use cgmath::*;
-use hecs::*;
 
 #[derive(Copy, Clone)]
 struct Transform(Matrix4<f32>);
@@ -13,31 +13,37 @@ struct Rotation(Vector3<f32>);
 #[derive(Copy, Clone)]
 struct Velocity(Vector3<f32>);
 
-pub struct Benchmark(World);
+pub struct Benchmark<const LOCKING: bool>(World);
 
-impl Benchmark {
+impl<const LOCKING: bool> Benchmark<LOCKING> {
     pub fn new() -> Self {
-        let mut world = World::new();
-        world.spawn_batch((0..crate::INSTANCES_COUNT).map(|_| {
-            (
+        let mut world = World::default();
+
+        for _ in 0..crate::INSTANCES_COUNT {
+            let _ = world.spawn((
                 Transform(Matrix4::from_scale(1.0)),
                 Position(Vector3::unit_x()),
                 Rotation(Vector3::unit_x()),
                 Velocity(Vector3::unit_x()),
-            )
-        }));
+            ));
+        }
 
         Self(world)
     }
 
     pub fn run(&mut self) {
-        for (_, (velocity, position)) in self.0.query_mut::<(&Velocity, &mut Position)>() {
+        for (velocity, position) in self.0.query::<LOCKING, (&Velocity, &mut Position)>() {
             position.0 += velocity.0;
         }
     }
 }
 
 #[test]
-fn test() {
-    Benchmark::new().run();
+fn test_locking() {
+    Benchmark::<true>::new().run();
+}
+
+#[test]
+fn test_lockfree() {
+    Benchmark::<false>::new().run();
 }

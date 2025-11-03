@@ -1,0 +1,626 @@
+
+running 54 tests
+test anput::add_remove::test ... ignored
+test anput::frag_iter::test_lockfree ... ignored
+test anput::frag_iter::test_locking ... ignored
+test anput::heavy_compute::test_lockfree ... ignored
+test anput::heavy_compute::test_locking ... ignored
+test anput::schedule::test_lockfree ... ignored
+test anput::schedule::test_locking ... ignored
+test anput::simple_insert::test ... ignored
+test anput::simple_iter::test_lockfree ... ignored
+test anput::simple_iter::test_locking ... ignored
+test bevy::add_remove::test ... ignored
+test bevy::frag_iter::test ... ignored
+test bevy::heavy_compute::test ... ignored
+test bevy::schedule::test ... ignored
+test bevy::simple_insert::test ... ignored
+test bevy::simple_iter::test ... ignored
+test ets::frag_iter::test ... ignored
+test ets::heavy_compute::test ... ignored
+test ets::schedule::test ... ignored
+test ets::serialize_binary::test ... ignored
+test ets::serialize_text::test ... ignored
+test ets::simple_insert::test ... ignored
+test ets::simple_iter::test ... ignored
+test hecs::add_remove::test ... ignored
+test hecs::frag_iter::test ... ignored
+test hecs::heavy_compute::test ... ignored
+test hecs::simple_insert::test ... ignored
+test hecs::simple_iter::test ... ignored
+test legion::add_remove::test ... ignored
+test legion::frag_iter::test ... ignored
+test legion::heavy_compute::test ... ignored
+test legion::schedule::test ... ignored
+test legion::simple_insert::test ... ignored
+test legion::simple_iter::test ... ignored
+test legion_packed::heavy_compute::test ... ignored
+test legion_packed::schedule::test ... ignored
+test legion_packed::simple_iter::test ... ignored
+test planck_ecs::add_remove::test ... ignored
+test planck_ecs::frag_iter::test ... ignored
+test planck_ecs::schedule::test ... ignored
+test planck_ecs::simple_insert::test ... ignored
+test planck_ecs::simple_iter::test ... ignored
+test shipyard::add_remove::test ... ignored
+test shipyard::frag_iter::test ... ignored
+test shipyard::heavy_compute::test ... ignored
+test shipyard::schedule::test ... ignored
+test shipyard::simple_insert::test ... ignored
+test shipyard::simple_iter::test ... ignored
+test specs::add_remove::test ... ignored
+test specs::frag_iter::test ... ignored
+test specs::heavy_compute::test ... ignored
+test specs::schedule::test ... ignored
+test specs::simple_insert::test ... ignored
+test specs::simple_iter::test ... ignored
+
+test result: ok. 0 passed; 0 failed; 54 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+WARNING: HTML report generation will become a non-default optional feature in Criterion.rs 0.4.0.
+This feature is being moved to cargo-criterion (https://github.com/bheisler/cargo-criterion) and will be optional in a future version of Criterion.rs. To silence this warning, either switch to cargo-criterion or enable the 'html_reports' feature in your Cargo.toml.
+
+Gnuplot not found, using plotters backend
+Benchmarking simple_insert/anput
+Benchmarking simple_insert/anput: Warming up for 3.0000 s
+Benchmarking simple_insert/anput: Collecting 100 samples in estimated 5.1600 s (600 iterations)
+Benchmarking simple_insert/anput: Analyzing
+simple_insert/anput     time:   [7.5609 ms 7.6719 ms 7.7849 ms]
+                        change: [-4.7896% -1.5355% +1.2402%] (p = 0.34 > 0.05)
+                        No change in performance detected.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+Benchmarking simple_insert/ets
+Benchmarking simple_insert/ets: Warming up for 3.0000 s
+Benchmarking simple_insert/ets: Collecting 100 samples in estimated 5.1460 s (30k iterations)
+Benchmarking simple_insert/ets: Analyzing
+simple_insert/ets       time:   [164.64 µs 165.49 µs 166.43 µs]
+                        change: [+3.5167% +4.2203% +4.9843%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 10 outliers among 100 measurements (10.00%)
+  7 (7.00%) low mild
+  3 (3.00%) high mild
+Benchmarking simple_insert/legion
+Benchmarking simple_insert/legion: Warming up for 3.0000 s
+Benchmarking simple_insert/legion: Collecting 100 samples in estimated 5.9214 s (20k iterations)
+Benchmarking simple_insert/legion: Analyzing
+simple_insert/legion    time:   [293.66 µs 298.62 µs 303.80 µs]
+                        change: [+5.0779% +6.9796% +8.9155%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 4 outliers among 100 measurements (4.00%)
+  2 (2.00%) high mild
+  2 (2.00%) high severe
+Benchmarking simple_insert/bevy
+Benchmarking simple_insert/bevy: Warming up for 3.0000 s
+Benchmarking simple_insert/bevy: Collecting 100 samples in estimated 5.2450 s (10k iterations)
+Benchmarking simple_insert/bevy: Analyzing
+simple_insert/bevy      time:   [520.20 µs 529.99 µs 539.17 µs]
+                        change: [+2.4612% +5.7481% +9.0342%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) low mild
+Benchmarking simple_insert/hecs
+Benchmarking simple_insert/hecs: Warming up for 3.0000 s
+Benchmarking simple_insert/hecs: Collecting 100 samples in estimated 6.6376 s (10k iterations)
+Benchmarking simple_insert/hecs: Analyzing
+simple_insert/hecs      time:   [657.79 µs 670.81 µs 682.61 µs]
+                        change: [-0.7088% +5.1211% +10.194%] (p = 0.06 > 0.05)
+                        No change in performance detected.
+Found 5 outliers among 100 measurements (5.00%)
+  5 (5.00%) low mild
+Benchmarking simple_insert/planck_ecs
+Benchmarking simple_insert/planck_ecs: Warming up for 3.0000 s
+Benchmarking simple_insert/planck_ecs: Collecting 100 samples in estimated 7.1133 s (10k iterations)
+Benchmarking simple_insert/planck_ecs: Analyzing
+simple_insert/planck_ecs
+                        time:   [743.16 µs 755.83 µs 770.30 µs]
+                        change: [-10.027% -6.8460% -3.9024%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 10 outliers among 100 measurements (10.00%)
+  1 (1.00%) high mild
+  9 (9.00%) high severe
+Benchmarking simple_insert/shipyard
+Benchmarking simple_insert/shipyard: Warming up for 3.0000 s
+Benchmarking simple_insert/shipyard: Collecting 100 samples in estimated 8.8016 s (10k iterations)
+Benchmarking simple_insert/shipyard: Analyzing
+simple_insert/shipyard  time:   [869.71 µs 891.86 µs 916.61 µs]
+                        change: [+1.8024% +4.8660% +7.6959%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 14 outliers among 100 measurements (14.00%)
+  7 (7.00%) high mild
+  7 (7.00%) high severe
+Benchmarking simple_insert/specs
+Benchmarking simple_insert/specs: Warming up for 3.0000 s
+Benchmarking simple_insert/specs: Collecting 100 samples in estimated 5.1785 s (2600 iterations)
+Benchmarking simple_insert/specs: Analyzing
+simple_insert/specs     time:   [1.9249 ms 1.9502 ms 1.9810 ms]
+                        change: [-0.8586% +0.8742% +2.9016%] (p = 0.35 > 0.05)
+                        No change in performance detected.
+Found 11 outliers among 100 measurements (11.00%)
+  5 (5.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking simple_iter/anput-locking
+Benchmarking simple_iter/anput-locking: Warming up for 3.0000 s
+Benchmarking simple_iter/anput-locking: Collecting 100 samples in estimated 5.1667 s (146k iterations)
+Benchmarking simple_iter/anput-locking: Analyzing
+simple_iter/anput-locking
+                        time:   [35.494 µs 36.040 µs 36.708 µs]
+                        change: [+3.9628% +5.6124% +7.5807%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 6 outliers among 100 measurements (6.00%)
+  5 (5.00%) high mild
+  1 (1.00%) high severe
+Benchmarking simple_iter/anput-lockfree
+Benchmarking simple_iter/anput-lockfree: Warming up for 3.0000 s
+Benchmarking simple_iter/anput-lockfree: Collecting 100 samples in estimated 5.0155 s (162k iterations)
+Benchmarking simple_iter/anput-lockfree: Analyzing
+simple_iter/anput-lockfree
+                        time:   [31.579 µs 31.999 µs 32.456 µs]
+                        change: [+3.3979% +4.7389% +6.3202%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 14 outliers among 100 measurements (14.00%)
+  2 (2.00%) low mild
+  5 (5.00%) high mild
+  7 (7.00%) high severe
+Benchmarking simple_iter/ets
+Benchmarking simple_iter/ets: Warming up for 3.0000 s
+Benchmarking simple_iter/ets: Collecting 100 samples in estimated 5.0573 s (217k iterations)
+Benchmarking simple_iter/ets: Analyzing
+simple_iter/ets         time:   [22.274 µs 22.646 µs 23.158 µs]
+                        change: [+3.0669% +4.8033% +6.7227%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 10 outliers among 100 measurements (10.00%)
+  7 (7.00%) high mild
+  3 (3.00%) high severe
+Benchmarking simple_iter/legion
+Benchmarking simple_iter/legion: Warming up for 3.0000 s
+Benchmarking simple_iter/legion: Collecting 100 samples in estimated 5.0318 s (505k iterations)
+Benchmarking simple_iter/legion: Analyzing
+simple_iter/legion      time:   [9.7076 µs 9.9435 µs 10.279 µs]
+                        change: [+9.8733% +12.232% +14.944%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+Benchmarking simple_iter/legion (packed)
+Benchmarking simple_iter/legion (packed): Warming up for 3.0000 s
+Benchmarking simple_iter/legion (packed): Collecting 100 samples in estimated 5.0362 s (545k iterations)
+Benchmarking simple_iter/legion (packed): Analyzing
+simple_iter/legion (packed)
+                        time:   [8.9782 µs 8.9997 µs 9.0233 µs]
+                        change: [-1.3052% -0.5206% +0.2604%] (p = 0.21 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  2 (2.00%) low severe
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  2 (2.00%) high severe
+Benchmarking simple_iter/bevy
+Benchmarking simple_iter/bevy: Warming up for 3.0000 s
+Benchmarking simple_iter/bevy: Collecting 100 samples in estimated 5.0324 s (359k iterations)
+Benchmarking simple_iter/bevy: Analyzing
+simple_iter/bevy        time:   [14.905 µs 15.380 µs 16.006 µs]
+                        change: [+9.2322% +11.532% +13.974%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high severe
+Benchmarking simple_iter/hecs
+Benchmarking simple_iter/hecs: Warming up for 3.0000 s
+Benchmarking simple_iter/hecs: Collecting 100 samples in estimated 5.0176 s (252k iterations)
+Benchmarking simple_iter/hecs: Analyzing
+simple_iter/hecs        time:   [19.607 µs 19.861 µs 20.164 µs]
+                        change: [+4.4594% +5.6186% +6.7814%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+Benchmarking simple_iter/planck_ecs
+Benchmarking simple_iter/planck_ecs: Warming up for 3.0000 s
+Benchmarking simple_iter/planck_ecs: Collecting 100 samples in estimated 5.1749 s (86k iterations)
+Benchmarking simple_iter/planck_ecs: Analyzing
+simple_iter/planck_ecs  time:   [61.847 µs 63.706 µs 65.863 µs]
+                        change: [+6.7101% +9.4210% +12.404%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 11 outliers among 100 measurements (11.00%)
+  5 (5.00%) high mild
+  6 (6.00%) high severe
+Benchmarking simple_iter/shipyard
+Benchmarking simple_iter/shipyard: Warming up for 3.0000 s
+Benchmarking simple_iter/shipyard: Collecting 100 samples in estimated 5.0410 s (212k iterations)
+Benchmarking simple_iter/shipyard: Analyzing
+simple_iter/shipyard    time:   [23.969 µs 24.486 µs 25.021 µs]
+                        change: [+7.7704% +10.057% +12.146%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+Benchmarking simple_iter/specs
+Benchmarking simple_iter/specs: Warming up for 3.0000 s
+Benchmarking simple_iter/specs: Collecting 100 samples in estimated 5.0314 s (202k iterations)
+Benchmarking simple_iter/specs: Analyzing
+simple_iter/specs       time:   [24.290 µs 24.676 µs 25.153 µs]
+                        change: [+8.8433% +10.623% +12.335%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+
+Benchmarking fragmented_iter/anput-locking
+Benchmarking fragmented_iter/anput-locking: Warming up for 3.0000 s
+Benchmarking fragmented_iter/anput-locking: Collecting 100 samples in estimated 5.0037 s (1.3M iterations)
+Benchmarking fragmented_iter/anput-locking: Analyzing
+fragmented_iter/anput-locking
+                        time:   [4.9988 µs 5.8875 µs 6.8505 µs]
+                        change: [+17.424% +28.646% +39.829%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 10 outliers among 100 measurements (10.00%)
+  3 (3.00%) high mild
+  7 (7.00%) high severe
+Benchmarking fragmented_iter/anput-lockfree
+Benchmarking fragmented_iter/anput-lockfree: Warming up for 3.0000 s
+Benchmarking fragmented_iter/anput-lockfree: Collecting 100 samples in estimated 5.0409 s (308k iterations)
+Benchmarking fragmented_iter/anput-lockfree: Analyzing
+fragmented_iter/anput-lockfree
+                        time:   [13.024 µs 14.189 µs 15.539 µs]
+                        change: [+206.86% +244.83% +290.11%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+Benchmarking fragmented_iter/ets
+Benchmarking fragmented_iter/ets: Warming up for 3.0000 s
+Benchmarking fragmented_iter/ets: Collecting 100 samples in estimated 5.0009 s (18M iterations)
+Benchmarking fragmented_iter/ets: Analyzing
+fragmented_iter/ets     time:   [278.63 ns 297.10 ns 315.61 ns]
+                        change: [+180.58% +201.33% +223.79%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 5 outliers among 100 measurements (5.00%)
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+Benchmarking fragmented_iter/legion
+Benchmarking fragmented_iter/legion: Warming up for 3.0000 s
+Benchmarking fragmented_iter/legion: Collecting 100 samples in estimated 5.0023 s (6.3M iterations)
+Benchmarking fragmented_iter/legion: Analyzing
+fragmented_iter/legion  time:   [685.44 ns 709.76 ns 736.04 ns]
+                        change: [+65.073% +72.609% +81.825%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  6 (6.00%) high mild
+  2 (2.00%) high severe
+Benchmarking fragmented_iter/bevy
+Benchmarking fragmented_iter/bevy: Warming up for 3.0000 s
+Benchmarking fragmented_iter/bevy: Collecting 100 samples in estimated 5.0252 s (985k iterations)
+Benchmarking fragmented_iter/bevy: Analyzing
+fragmented_iter/bevy    time:   [4.5979 µs 4.8618 µs 5.1587 µs]
+                        change: [+116.01% +125.85% +137.25%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+Benchmarking fragmented_iter/hecs
+Benchmarking fragmented_iter/hecs: Warming up for 3.0000 s
+Benchmarking fragmented_iter/hecs: Collecting 100 samples in estimated 5.0036 s (2.9M iterations)
+Benchmarking fragmented_iter/hecs: Analyzing
+fragmented_iter/hecs    time:   [2.1322 µs 2.3902 µs 2.6463 µs]
+                        change: [+120.70% +141.71% +164.25%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 5 outliers among 100 measurements (5.00%)
+  5 (5.00%) high mild
+Benchmarking fragmented_iter/planck_ecs
+Benchmarking fragmented_iter/planck_ecs: Warming up for 3.0000 s
+Benchmarking fragmented_iter/planck_ecs: Collecting 100 samples in estimated 5.0027 s (7.6M iterations)
+Benchmarking fragmented_iter/planck_ecs: Analyzing
+fragmented_iter/planck_ecs
+                        time:   [601.85 ns 647.97 ns 701.62 ns]
+                        change: [+114.21% +133.90% +154.83%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+Benchmarking fragmented_iter/shipyard
+Benchmarking fragmented_iter/shipyard: Warming up for 3.0000 s
+Benchmarking fragmented_iter/shipyard: Collecting 100 samples in estimated 5.0002 s (30M iterations)
+Benchmarking fragmented_iter/shipyard: Analyzing
+fragmented_iter/shipyard
+                        time:   [145.71 ns 156.99 ns 169.77 ns]
+                        change: [+81.673% +94.906% +107.48%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  7 (7.00%) high mild
+  1 (1.00%) high severe
+Benchmarking fragmented_iter/specs
+Benchmarking fragmented_iter/specs: Warming up for 3.0000 s
+Benchmarking fragmented_iter/specs: Collecting 100 samples in estimated 5.0016 s (2.4M iterations)
+Benchmarking fragmented_iter/specs: Analyzing
+fragmented_iter/specs   time:   [1.8008 µs 1.8801 µs 1.9739 µs]
+                        change: [+31.624% +39.121% +48.177%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  6 (6.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking schedule/anput-locking
+Benchmarking schedule/anput-locking: Warming up for 3.0000 s
+Benchmarking schedule/anput-locking: Collecting 100 samples in estimated 5.0447 s (15k iterations)
+Benchmarking schedule/anput-locking: Analyzing
+schedule/anput-locking  time:   [731.37 µs 779.47 µs 830.17 µs]
+                        change: [+101.38% +118.50% +136.03%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+Benchmarking schedule/anput-lockfree
+Benchmarking schedule/anput-lockfree: Warming up for 3.0000 s
+Benchmarking schedule/anput-lockfree: Collecting 100 samples in estimated 7.5299 s (10k iterations)
+Benchmarking schedule/anput-lockfree: Analyzing
+schedule/anput-lockfree time:   [719.13 µs 754.26 µs 792.86 µs]
+                        change: [+208.43% +335.91% +492.17%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 10 outliers among 100 measurements (10.00%)
+  5 (5.00%) high mild
+  5 (5.00%) high severe
+Benchmarking schedule/ets
+Benchmarking schedule/ets: Warming up for 3.0000 s
+Benchmarking schedule/ets: Collecting 100 samples in estimated 5.0007 s (66k iterations)
+Benchmarking schedule/ets: Analyzing
+schedule/ets            time:   [75.467 µs 78.678 µs 83.049 µs]
+                        change: [+39.312% +43.268% +47.845%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  7 (7.00%) high mild
+  2 (2.00%) high severe
+Benchmarking schedule/legion
+Benchmarking schedule/legion: Warming up for 3.0000 s
+Benchmarking schedule/legion: Collecting 100 samples in estimated 5.1137 s (121k iterations)
+Benchmarking schedule/legion: Analyzing
+schedule/legion         time:   [42.099 µs 42.290 µs 42.446 µs]
+                        change: [-0.6771% +1.5709% +3.3939%] (p = 0.13 > 0.05)
+                        No change in performance detected.
+Found 8 outliers among 100 measurements (8.00%)
+  1 (1.00%) low severe
+  5 (5.00%) low mild
+  2 (2.00%) high mild
+Benchmarking schedule/legion (packed)
+Benchmarking schedule/legion (packed): Warming up for 3.0000 s
+Benchmarking schedule/legion (packed): Collecting 100 samples in estimated 5.0886 s (121k iterations)
+Benchmarking schedule/legion (packed): Analyzing
+schedule/legion (packed)
+                        time:   [41.004 µs 41.486 µs 42.050 µs]
+                        change: [-2.3539% -1.2655% -0.0800%] (p = 0.03 < 0.05)
+                        Change within noise threshold.
+Found 15 outliers among 100 measurements (15.00%)
+  2 (2.00%) low severe
+  9 (9.00%) low mild
+  2 (2.00%) high mild
+  2 (2.00%) high severe
+Benchmarking schedule/bevy
+Benchmarking schedule/bevy: Warming up for 3.0000 s
+Benchmarking schedule/bevy: Collecting 100 samples in estimated 5.2684 s (45k iterations)
+Benchmarking schedule/bevy: Analyzing
+schedule/bevy           time:   [116.61 µs 118.26 µs 120.40 µs]
+                        change: [+10.697% +12.395% +14.178%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  8 (8.00%) high mild
+  1 (1.00%) high severe
+Benchmarking schedule/planck_ecs
+Benchmarking schedule/planck_ecs: Warming up for 3.0000 s
+Benchmarking schedule/planck_ecs: Collecting 100 samples in estimated 7.1659 s (15k iterations)
+Benchmarking schedule/planck_ecs: Analyzing
+schedule/planck_ecs     time:   [475.22 µs 484.03 µs 493.80 µs]
+                        change: [+1.6288% +3.2272% +5.0412%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) low mild
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+Benchmarking schedule/shipyard
+Benchmarking schedule/shipyard: Warming up for 3.0000 s
+Benchmarking schedule/shipyard: Collecting 100 samples in estimated 5.1745 s (40k iterations)
+Benchmarking schedule/shipyard: Analyzing
+schedule/shipyard       time:   [118.40 µs 120.02 µs 122.24 µs]
+                        change: [+5.4942% +7.9043% +11.073%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 5 outliers among 100 measurements (5.00%)
+  4 (4.00%) high mild
+  1 (1.00%) high severe
+Benchmarking schedule/specs
+Benchmarking schedule/specs: Warming up for 3.0000 s
+Benchmarking schedule/specs: Collecting 100 samples in estimated 5.2820 s (30k iterations)
+Benchmarking schedule/specs: Analyzing
+schedule/specs          time:   [170.74 µs 172.81 µs 175.13 µs]
+                        change: [-1.0507% +0.9972% +3.0218%] (p = 0.35 > 0.05)
+                        No change in performance detected.
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking heavy_compute/anput-locking
+Benchmarking heavy_compute/anput-locking: Warming up for 3.0000 s
+Benchmarking heavy_compute/anput-locking: Collecting 100 samples in estimated 5.0375 s (1000 iterations)
+Benchmarking heavy_compute/anput-locking: Analyzing
+heavy_compute/anput-locking
+                        time:   [4.9640 ms 5.0195 ms 5.0859 ms]
+                        change: [-0.3773% +1.5222% +3.3791%] (p = 0.12 > 0.05)
+                        No change in performance detected.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+Benchmarking heavy_compute/anput-lockfree
+Benchmarking heavy_compute/anput-lockfree: Warming up for 3.0000 s
+Benchmarking heavy_compute/anput-lockfree: Collecting 100 samples in estimated 6.9341 s (10k iterations)
+Benchmarking heavy_compute/anput-lockfree: Analyzing
+heavy_compute/anput-lockfree
+                        time:   [668.11 µs 679.84 µs 694.60 µs]
+                        change: [-1.9153% -0.2657% +1.7470%] (p = 0.78 > 0.05)
+                        No change in performance detected.
+Found 5 outliers among 100 measurements (5.00%)
+  3 (3.00%) high mild
+  2 (2.00%) high severe
+Benchmarking heavy_compute/ets
+Benchmarking heavy_compute/ets: Warming up for 3.0000 s
+Benchmarking heavy_compute/ets: Collecting 100 samples in estimated 8.9034 s (10k iterations)
+Benchmarking heavy_compute/ets: Analyzing
+heavy_compute/ets       time:   [841.28 µs 857.07 µs 874.99 µs]
+                        change: [+2.8481% +5.4109% +7.7518%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+Benchmarking heavy_compute/legion
+Benchmarking heavy_compute/legion: Warming up for 3.0000 s
+Benchmarking heavy_compute/legion: Collecting 100 samples in estimated 8.5861 s (10k iterations)
+Benchmarking heavy_compute/legion: Analyzing
+heavy_compute/legion    time:   [845.71 µs 869.32 µs 896.34 µs]
+                        change: [+2.6814% +5.5347% +8.2722%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+Benchmarking heavy_compute/legion (packed)
+Benchmarking heavy_compute/legion (packed): Warming up for 3.0000 s
+Benchmarking heavy_compute/legion (packed): Collecting 100 samples in estimated 8.8750 s (10k iterations)
+Benchmarking heavy_compute/legion (packed): Analyzing
+heavy_compute/legion (packed)
+                        time:   [829.06 µs 844.56 µs 862.67 µs]
+                        change: [-0.9369% +2.1218% +5.2773%] (p = 0.19 > 0.05)
+                        No change in performance detected.
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) high mild
+  3 (3.00%) high severe
+Benchmarking heavy_compute/bevy
+Benchmarking heavy_compute/bevy: Warming up for 3.0000 s
+Benchmarking heavy_compute/bevy: Collecting 100 samples in estimated 5.1827 s (1200 iterations)
+Benchmarking heavy_compute/bevy: Analyzing
+heavy_compute/bevy      time:   [4.2841 ms 4.3621 ms 4.4504 ms]
+                        change: [+5.6560% +8.1221% +10.955%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking heavy_compute/hecs
+Benchmarking heavy_compute/hecs: Warming up for 3.0000 s
+Benchmarking heavy_compute/hecs: Collecting 100 samples in estimated 8.5907 s (10k iterations)
+Benchmarking heavy_compute/hecs: Analyzing
+heavy_compute/hecs      time:   [807.02 µs 811.20 µs 815.63 µs]
+                        change: [-0.4264% +0.5680% +1.5424%] (p = 0.27 > 0.05)
+                        No change in performance detected.
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+Benchmarking heavy_compute/shipyard
+Benchmarking heavy_compute/shipyard: Warming up for 3.0000 s
+Benchmarking heavy_compute/shipyard: Collecting 100 samples in estimated 8.2132 s (10k iterations)
+Benchmarking heavy_compute/shipyard: Analyzing
+heavy_compute/shipyard  time:   [800.04 µs 802.22 µs 804.68 µs]
+                        change: [+0.8728% +2.2013% +3.5100%] (p = 0.00 < 0.05)
+                        Change within noise threshold.
+Found 15 outliers among 100 measurements (15.00%)
+  5 (5.00%) high mild
+  10 (10.00%) high severe
+Benchmarking heavy_compute/specs
+Benchmarking heavy_compute/specs: Warming up for 3.0000 s
+Benchmarking heavy_compute/specs: Collecting 100 samples in estimated 8.3239 s (10k iterations)
+Benchmarking heavy_compute/specs: Analyzing
+heavy_compute/specs     time:   [899.01 µs 941.74 µs 988.24 µs]
+                        change: [+7.1879% +9.8353% +13.280%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 10 outliers among 100 measurements (10.00%)
+  7 (7.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking add_remove_component/anput
+Benchmarking add_remove_component/anput: Warming up for 3.0000 s
+Benchmarking add_remove_component/anput: Collecting 100 samples in estimated 5.9488 s (200 iterations)
+Benchmarking add_remove_component/anput: Analyzing
+add_remove_component/anput
+                        time:   [28.980 ms 29.517 ms 30.058 ms]
+                        change: [+11.803% +14.627% +17.345%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+Benchmarking add_remove_component/legion
+Benchmarking add_remove_component/legion: Warming up for 3.0000 s
+Benchmarking add_remove_component/legion: Collecting 100 samples in estimated 5.3333 s (1000 iterations)
+Benchmarking add_remove_component/legion: Analyzing
+add_remove_component/legion
+                        time:   [5.3570 ms 5.4003 ms 5.4444 ms]
+                        change: [+4.8828% +6.4173% +7.9494%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+Benchmarking add_remove_component/hecs
+Benchmarking add_remove_component/hecs: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.1s, enable flat sampling, or reduce sample count to 60.
+Benchmarking add_remove_component/hecs: Collecting 100 samples in estimated 5.1131 s (5050 iterations)
+Benchmarking add_remove_component/hecs: Analyzing
+add_remove_component/hecs
+                        time:   [990.22 µs 1.0127 ms 1.0406 ms]
+                        change: [+5.7982% +8.6431% +11.515%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) low mild
+  1 (1.00%) high severe
+Benchmarking add_remove_component/planck_ecs
+Benchmarking add_remove_component/planck_ecs: Warming up for 3.0000 s
+Benchmarking add_remove_component/planck_ecs: Collecting 100 samples in estimated 5.2498 s (86k iterations)
+Benchmarking add_remove_component/planck_ecs: Analyzing
+add_remove_component/planck_ecs
+                        time:   [61.284 µs 61.652 µs 62.094 µs]
+                        change: [+2.0859% +2.8248% +3.5083%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 8 outliers among 100 measurements (8.00%)
+  4 (4.00%) high mild
+  4 (4.00%) high severe
+Benchmarking add_remove_component/shipyard
+Benchmarking add_remove_component/shipyard: Warming up for 3.0000 s
+Benchmarking add_remove_component/shipyard: Collecting 100 samples in estimated 5.0518 s (40k iterations)
+Benchmarking add_remove_component/shipyard: Analyzing
+add_remove_component/shipyard
+                        time:   [125.24 µs 126.82 µs 128.93 µs]
+                        change: [-3.1389% -0.5902% +1.7698%] (p = 0.65 > 0.05)
+                        No change in performance detected.
+Found 10 outliers among 100 measurements (10.00%)
+  5 (5.00%) high mild
+  5 (5.00%) high severe
+Benchmarking add_remove_component/specs
+Benchmarking add_remove_component/specs: Warming up for 3.0000 s
+Benchmarking add_remove_component/specs: Collecting 100 samples in estimated 5.2808 s (45k iterations)
+Benchmarking add_remove_component/specs: Analyzing
+add_remove_component/specs
+                        time:   [116.32 µs 116.92 µs 117.69 µs]
+                        change: [-4.0445% -1.9565% -0.1079%] (p = 0.06 > 0.05)
+                        No change in performance detected.
+Found 7 outliers among 100 measurements (7.00%)
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  4 (4.00%) high severe
+Benchmarking add_remove_component/bevy
+Benchmarking add_remove_component/bevy: Warming up for 3.0000 s
+
+Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 7.8s, enable flat sampling, or reduce sample count to 50.
+Benchmarking add_remove_component/bevy: Collecting 100 samples in estimated 7.8445 s (5050 iterations)
+Benchmarking add_remove_component/bevy: Analyzing
+add_remove_component/bevy
+                        time:   [1.5855 ms 1.6126 ms 1.6421 ms]
+                        change: [-2.1505% +0.8303% +3.5815%] (p = 0.57 > 0.05)
+                        No change in performance detected.
+Found 11 outliers among 100 measurements (11.00%)
+  11 (11.00%) high mild
+
+Benchmarking serialize_text/ets
+Benchmarking serialize_text/ets: Warming up for 3.0000 s
+Benchmarking serialize_text/ets: Collecting 100 samples in estimated 5.2780 s (1100 iterations)
+Benchmarking serialize_text/ets: Analyzing
+serialize_text/ets      time:   [4.7126 ms 4.7475 ms 4.7814 ms]
+                        change: [+1.9581% +3.2979% +4.6180%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) low mild
+
+Benchmarking serialize_binary/ets
+Benchmarking serialize_binary/ets: Warming up for 3.0000 s
+Benchmarking serialize_binary/ets: Collecting 100 samples in estimated 5.8333 s (35k iterations)
+Benchmarking serialize_binary/ets: Analyzing
+serialize_binary/ets    time:   [164.46 µs 164.90 µs 165.38 µs]
+                        change: [-7.5633% -5.8247% -4.2757%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 10 outliers among 100 measurements (10.00%)
+  1 (1.00%) low mild
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+

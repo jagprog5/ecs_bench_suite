@@ -1,5 +1,5 @@
+use anput::world::World;
 use cgmath::*;
-use legion::*;
 
 #[derive(Copy, Clone)]
 struct Transform(Matrix4<f32>);
@@ -23,15 +23,14 @@ impl Benchmark {
     pub fn run(&mut self) {
         let mut world = World::default();
 
-        world.extend(
-            (
-                vec![Transform(Matrix4::from_scale(1.0)); crate::INSTANCES_COUNT],
-                vec![Position(Vector3::unit_x()); crate::INSTANCES_COUNT],
-                vec![Rotation(Vector3::unit_x()); crate::INSTANCES_COUNT],
-                vec![Velocity(Vector3::unit_x()); crate::INSTANCES_COUNT],
-            )
-                .into_soa(),
-        );
+        for _ in 0..crate::INSTANCES_COUNT {
+            let _ = world.spawn((
+                Transform(Matrix4::from_scale(1.0)),
+                Position(Vector3::unit_x()),
+                Rotation(Vector3::unit_x()),
+                Velocity(Vector3::unit_x()),
+            ));
+        }
     }
 }
 

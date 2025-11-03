@@ -1,8 +1,6 @@
-use bevy_ecs::prelude::*;
+use anput::{entity::Entity, world::World};
 
-#[derive(Component)]
 struct A(f32);
-#[derive(Component)]
 struct B(f32);
 
 pub struct Benchmark(World, Vec<Entity>);
@@ -11,8 +9,8 @@ impl Benchmark {
     pub fn new() -> Self {
         let mut world = World::default();
 
-        let entities = world
-            .spawn_batch((0..crate::INSTANCES_COUNT).map(|_| (A(0.0),)))
+        let entities = (0..crate::INSTANCES_COUNT)
+            .map(|_| world.spawn((A(0.0),)).unwrap())
             .collect::<Vec<_>>();
 
         Self(world, entities)
@@ -20,11 +18,11 @@ impl Benchmark {
 
     pub fn run(&mut self) {
         for entity in &self.1 {
-            self.0.entity_mut(*entity).insert(B(0.0));
+            self.0.insert(*entity, (B(0.0),)).unwrap();
         }
 
         for entity in &self.1 {
-            self.0.entity_mut(*entity).remove::<B>();
+            self.0.remove::<(B,)>(*entity).unwrap();
         }
     }
 }
